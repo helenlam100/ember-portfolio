@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+    <div>
+      <ul>
+        <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+        <li>{{#link-to 'portfolio'}}Portfolio{{/link-to}}</li>
+        <li>{{#link-to 'resume'}}Resume{{/link-to}}</li>
+      </ul>
+    </div>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="portfolio">
+    <h2>Portfolio</h2>
+    <p>
+      About gSchool: 6-month intensive program teaching the languages Ruby, Javascript, jQuery and their related frameworks including Ember, and Rails
+      We have also learned the art of utilizing APIs, Heroku Deployment, GitHub team project flow, Object Oriented Programming, Web Scraping, with instruction and daily mini-projects and several large projects
+      Created a project using Google Maps API to create an application to locate nearby cafes, restaurants, and clothing stores utilizing their filter search
+      Created a Reddit clone using Ruby, Rails, Devise Gem, and Twitter Bootstrap
+      Created an asynchronous app in three days utilizing Javascript, jQuery,  Rails, AJAX,  Devise Gem, and the YouTube API to allow the user to retrieve a movie trailer, leave a review, and an authentication feature to sign up, sign in and sign out
+    </p>
+
+      <ul>
+        {{#each project in model}}
+        <li>{{#link-to "portfolio.project" project}}{{project.name}}{{/link-to}}</li>
+        {{/each}}
+
+    </ul>
+    {{outlet}}
+
+  </script>
+
+  <script type="text/x-handlebars" id="portfolio/project">
+    <div id="name">
+      {{name}}
+    </div>
+
+
+  </script>
+
+  <script type="text/x-handlebars" id="resume">
+    <h2>Resume</h2>
+    <div>
+      <p>
+        Want to get in touch for my resume? Call me at:
+      </p>
+      <ul>
+        <li>Phone: 415 769 7620</li>
+        <li>Email: <a href="helen.f.lam100@gmail.com">helen.f.lam100@gmail.com</a></li>
+      </ul>
+
+    </div>
+  </script>
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js" charset="utf-8"></script>
+  <script src="js/libs/ember-template-compiler-1.10.0.js"></script>
+  <script src="js/libs/ember-1.10.0.debug.js"></script>
+  <script src="js/libs/ember.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/models/portfolio.js"></script>
+  <script src="tests/runner.js"></script>
+  </body>
+  </html>
